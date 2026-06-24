@@ -2,7 +2,9 @@ const Database = require('better-sqlite3');
 const path = require('path');
 const fs = require('fs');
 
-const DB_PATH = process.env.OMARS_DB_PATH || path.join(__dirname, '..', 'data', 'omars.db');
+// process.cwd(), not __dirname: Next.js's bundler rewrites __dirname inside
+// server chunks to a virtual path that doesn't exist on disk.
+const DB_PATH = process.env.OMARS_DB_PATH || path.join(process.cwd(), 'data', 'omars.db');
 
 fs.mkdirSync(path.dirname(DB_PATH), { recursive: true });
 
