@@ -29,6 +29,8 @@ export default function Admin() {
   const [tab, setTab] = useState('menu-items');
   const [items, setItems] = useState([]);
   const [form, setForm] = useState({});
+  const [editingId, setEditingId] = useState(null);
+  const [editForm, setEditForm] = useState({});
 
   async function loadTab(tabKey, pwd) {
     const res = await fetch(TABS[tabKey].endpoint, { headers: { 'x-admin-password': pwd } });
@@ -50,6 +52,7 @@ export default function Admin() {
   async function switchTab(tabKey) {
     setTab(tabKey);
     setForm({});
+    setEditingId(null);
     await loadTab(tabKey, password);
   }
 
@@ -73,6 +76,33 @@ export default function Admin() {
       headers: { 'Content-Type': 'application/json', 'x-admin-password': password },
       body: JSON.stringify({ id }),
     });
+    loadTab(tab, password);
+  }
+
+  function startEdit(item) {
+    setEditingId(item.id);
+    setEditForm({
+      category: item.category ?? '',
+      name: item.name ?? '',
+      description: item.description ?? '',
+      price: item.price ?? '',
+      activeRange: item.active_range ?? '',
+    });
+  }
+
+  function cancelEdit() {
+    setEditingId(null);
+    setEditForm({});
+  }
+
+  async function saveEdit(id) {
+    const payload = { ...editForm, id, price: Number(editForm.price) };
+    await fetch(TABS[tab].endpoint, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json', 'x-admin-password': password },
+      body: JSON.stringify(payload),
+    });
+    setEditingId(null);
     loadTab(tab, password);
   }
 
@@ -133,14 +163,46 @@ export default function Admin() {
       </form>
 
       <ul className="space-y-2">
-        {items.map((item) => (
-          <li key={item.id} className="flex justify-between items-center border-b border-brand-gold/40 pb-2">
-            <span>{config.display(item)}</span>
-            <button onClick={() => deleteItem(item.id)} className="text-red-700 text-sm underline">
-              Delete
-            </button>
-          </li>
-        ))}
+        {items.map((item) =>
+          editingId === item.id ? (
+            <li key={item.id} className="border-b border-brand-gold/40 pb-3">
+              <div className="grid grid-cols-2 gap-2 mb-2">
+                {config.fields.map((field) => (
+                  <input
+                    key={field}
+                    placeholder={field}
+                    value={editForm[field] ?? ''}
+                    onChange={(e) => setEditForm({ ...editForm, [field]: e.target.value })}
+                    className={`border border-brand-gold px-2 py-1 text-sm ${field === 'description' ? 'col-span-2' : ''}`}
+                  />
+                ))}
+              </div>
+              <div className="flex gap-3">
+                <button
+                  onClick={() => saveEdit(item.id)}
+                  className="bg-brand-burgundy text-brand-cream px-3 py-1 text-xs uppercase"
+                >
+                  Save
+                </button>
+                <button onClick={cancelEdit} className="text-sm underline">
+                  Cancel
+                </button>
+              </div>
+            </li>
+          ) : (
+            <li key={item.id} className="flex justify-between items-center border-b border-brand-gold/40 pb-2">
+              <span>{config.display(item)}</span>
+              <div className="flex gap-3">
+                <button onClick={() => startEdit(item)} className="text-brand-burgundy text-sm underline">
+                  Edit
+                </button>
+                <button onClick={() => deleteItem(item.id)} className="text-red-700 text-sm underline">
+                  Delete
+                </button>
+              </div>
+            </li>
+          )
+        )}
       </ul>
     </div>
   );

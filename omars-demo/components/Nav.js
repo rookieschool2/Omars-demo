@@ -55,8 +55,8 @@ export default function Nav() {
       </div>
 
       {open && (
-        <nav className="absolute top-full left-0 right-0 bg-brand-dark border-t border-brand-gold shadow-lg z-50">
-          <div className="max-w-6xl mx-auto px-6 py-4 flex flex-col gap-3 text-sm uppercase tracking-wide">
+        <nav className="absolute top-full right-6 mt-1 w-48 bg-brand-dark border border-brand-gold shadow-lg z-50">
+          <div className="px-4 py-3 flex flex-col gap-3 text-sm uppercase tracking-wide">
             {LINKS.map(([label, href]) => (
               <Link key={href} href={href} className="hover:text-brand-gold" onClick={() => setOpen(false)}>
                 {label}

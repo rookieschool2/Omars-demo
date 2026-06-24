@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { getMenuItems } from '@/lib/queries';
-import MenuList from '@/components/MenuList';
+import OrderableMenuList from '@/components/OrderableMenuList';
 
 export const dynamic = 'force-dynamic';
 
@@ -45,7 +45,7 @@ export default function Menus() {
           week from local and global waters, and we make all of our soups, dressings, sauces, and
           stocks from scratch, from our kitchen to your plate.
         </p>
-        <MenuList items={items} />
+        <OrderableMenuList items={items} />
         <p className="mt-12 text-sm text-brand-dark/60">
           Omar&apos;s charges an 18% gratuity for groups of 6 or more. Due to fluctuating market
           costs, prices are subject to change without notice.

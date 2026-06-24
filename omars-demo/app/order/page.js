@@ -1,5 +1,6 @@
 'use client';
 import { useEffect, useState } from 'react';
+import { getCart, saveCart } from '@/lib/cart';
 
 function generateCode() {
   return String(Math.floor(100000 + Math.random() * 900000));
@@ -18,19 +19,23 @@ export default function Order() {
     fetch('/api/menu-items')
       .then((r) => r.json())
       .then(setMenu);
+    setCart(getCart());
   }, []);
 
+  function updateCart(next) {
+    setCart(next);
+    saveCart(next);
+  }
+
   function addToCart(item) {
-    setCart((prev) => ({ ...prev, [item.id]: { item, qty: (prev[item.id]?.qty || 0) + 1 } }));
+    updateCart({ ...cart, [item.id]: { item, qty: (cart[item.id]?.qty || 0) + 1 } });
   }
   function removeFromCart(item) {
-    setCart((prev) => {
-      const next = { ...prev };
-      if (!next[item.id]) return prev;
-      if (next[item.id].qty <= 1) delete next[item.id];
-      else next[item.id] = { item, qty: next[item.id].qty - 1 };
-      return next;
-    });
+    const next = { ...cart };
+    if (!next[item.id]) return;
+    if (next[item.id].qty <= 1) delete next[item.id];
+    else next[item.id] = { item, qty: next[item.id].qty - 1 };
+    updateCart(next);
   }
 
   const cartLines = Object.values(cart);
@@ -72,8 +77,12 @@ export default function Order() {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(pendingOrder),
     });
-    if (res.ok) setStep('confirmed');
-    else setError('Something went wrong placing your order.');
+    if (res.ok) {
+      updateCart({});
+      setStep('confirmed');
+    } else {
+      setError('Something went wrong placing your order.');
+    }
   }
 
   if (step === 'confirmed') {
