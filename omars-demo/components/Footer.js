@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import NewsletterSignup from './NewsletterSignup';
 
 export default function Footer() {
@@ -5,9 +6,9 @@ export default function Footer() {
     <footer className="bg-brand-dark text-brand-cream border-t border-brand-gold mt-16">
       <div className="max-w-6xl mx-auto px-6 py-10 flex flex-col md:flex-row justify-between gap-6">
         <div>
-          <p className="font-serif text-xl text-brand-gold">OMAR&apos;S</p>
-          <p className="text-sm mt-2">1380 Siskiyou Blvd, Ashland, OR 97520</p>
-          <p className="text-sm">541.482.1281</p>
+          <Image src="/site-assets/logo.png" alt="Omar's Restaurant & Bar" width={64} height={61} />
+          <p className="text-sm mt-3">1380 Siskiyou Blvd, Ashland, OR 97520</p>
+          <p className="text-sm">541.482.1281 &middot; omarsrestaurant@gmail.com</p>
           <p className="text-sm mt-2">Est. 1946 &middot; Ashland&apos;s oldest restaurant</p>
         </div>
         <div className="flex gap-4 items-start">

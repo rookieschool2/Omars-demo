@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 const LINKS = [
   ['Home', '/'],
@@ -16,8 +17,11 @@ export default function Nav() {
   return (
     <header className="bg-brand-dark text-brand-cream border-b border-brand-gold">
       <div className="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
-        <Link href="/" className="font-serif text-2xl tracking-widest text-brand-gold">
-          OMAR&apos;S
+        <Link href="/" className="flex items-center gap-3">
+          <Image src="/site-assets/logo.png" alt="Omar's Restaurant & Bar" width={56} height={53} />
+          <span className="font-serif text-xl tracking-wide text-brand-gold hidden sm:inline">
+            OMAR&apos;S
+          </span>
         </Link>
         <nav className="hidden md:flex gap-5 text-sm uppercase tracking-wide">
           {LINKS.map(([label, href]) => (
