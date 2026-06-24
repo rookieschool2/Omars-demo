@@ -1,11 +1,18 @@
 'use client';
 import { useEffect, useState } from 'react';
 
+function generateCode() {
+  return String(Math.floor(100000 + Math.random() * 900000));
+}
+
 export default function Order() {
   const [menu, setMenu] = useState([]);
   const [cart, setCart] = useState({});
   const [step, setStep] = useState('browse');
   const [error, setError] = useState('');
+  const [pendingOrder, setPendingOrder] = useState(null);
+  const [sentCode, setSentCode] = useState('');
+  const [codeInput, setCodeInput] = useState('');
 
   useEffect(() => {
     fetch('/api/menu-items')
@@ -29,7 +36,7 @@ export default function Order() {
   const cartLines = Object.values(cart);
   const total = cartLines.reduce((sum, line) => sum + line.item.price * line.qty, 0);
 
-  async function handleCheckout(e) {
+  function handleCheckout(e) {
     e.preventDefault();
     if (cartLines.length === 0) {
       setError('Your cart is empty.');
@@ -47,10 +54,23 @@ export default function Order() {
       return;
     }
     setError('');
+    setPendingOrder(payload);
+    setSentCode(generateCode());
+    setCodeInput('');
+    setStep('verify');
+  }
+
+  async function handleVerify(e) {
+    e.preventDefault();
+    if (codeInput !== sentCode) {
+      setError("That code doesn't match. Check it and try again.");
+      return;
+    }
+    setError('');
     const res = await fetch('/api/orders', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload),
+      body: JSON.stringify(pendingOrder),
     });
     if (res.ok) setStep('confirmed');
     else setError('Something went wrong placing your order.');
@@ -61,6 +81,43 @@ export default function Order() {
       <div className="max-w-xl mx-auto px-6 py-16 text-center">
         <h1 className="font-serif text-3xl text-brand-burgundy">Order placed</h1>
         <p className="mt-4">Thanks! This is a demo order. No real payment was charged.</p>
+      </div>
+    );
+  }
+
+  if (step === 'verify') {
+    return (
+      <div className="max-w-md mx-auto px-6 py-16">
+        <h1 className="font-serif text-3xl text-brand-burgundy mb-4">Verify Your Order</h1>
+        <p className="mb-2">
+          We sent a 6-digit code to {pendingOrder.contact} to confirm this order is really you.
+        </p>
+        <p className="mb-6 text-sm text-brand-dark/60">
+          Demo only: in a real deployment this code would arrive by text or email. For this demo,
+          your code is <span className="font-serif text-brand-gold text-lg">{sentCode}</span>.
+        </p>
+        <form onSubmit={handleVerify} className="space-y-3">
+          {error && <p className="text-red-700 text-sm">{error}</p>}
+          <input
+            value={codeInput}
+            onChange={(e) => setCodeInput(e.target.value)}
+            placeholder="Enter 6-digit code"
+            className="w-full border border-brand-gold px-3 py-2"
+          />
+          <button
+            type="submit"
+            className="w-full bg-brand-burgundy text-brand-cream px-4 py-2 uppercase text-sm tracking-wide hover:bg-brand-gold hover:text-brand-dark transition"
+          >
+            Confirm Order
+          </button>
+        </form>
+        <button
+          type="button"
+          onClick={() => setStep('browse')}
+          className="mt-4 text-sm text-brand-burgundy underline"
+        >
+          Back to cart
+        </button>
       </div>
     );
   }

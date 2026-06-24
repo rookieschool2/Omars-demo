@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import { getMenuItems } from '@/lib/queries';
 import MenuList from '@/components/MenuList';
 
@@ -21,6 +22,22 @@ export default function Menus() {
 
       <div className="max-w-3xl mx-auto px-6 py-16">
         <h1 className="font-serif text-4xl text-brand-burgundy mb-4">Menu</h1>
+        <div className="flex flex-wrap gap-4 mb-8">
+          <Link
+            href="/order"
+            className="bg-brand-burgundy text-brand-cream px-5 py-2.5 uppercase text-sm tracking-wide hover:bg-brand-gold hover:text-brand-dark transition"
+          >
+            Order Online
+          </Link>
+          <a
+            href="/site-assets/omars-menu.pdf"
+            target="_blank"
+            rel="noreferrer"
+            className="border border-brand-gold text-brand-burgundy px-5 py-2.5 uppercase text-sm tracking-wide hover:bg-brand-gold hover:text-brand-dark transition"
+          >
+            View PDF Menu
+          </a>
+        </div>
         <p className="text-brand-dark/80 mb-10">
           It is our mission to provide our guests with the freshest and highest quality food,
           locally sourced whenever possible. We hand-cut all of our steaks and dry-age them an

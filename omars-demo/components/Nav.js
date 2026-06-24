@@ -19,7 +19,7 @@ export default function Nav() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="bg-brand-dark text-brand-cream border-b border-brand-gold">
+    <header className="relative bg-brand-dark text-brand-cream border-b border-brand-gold">
       <div className="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
         <Link href="/" className="flex items-center gap-3">
           <Image src="/site-assets/logo.png" alt="Omar's Restaurant & Bar" width={56} height={53} />
@@ -55,8 +55,8 @@ export default function Nav() {
       </div>
 
       {open && (
-        <nav className="border-t border-brand-gold px-6 py-4">
-          <div className="max-w-6xl mx-auto flex flex-wrap gap-x-6 gap-y-3 text-sm uppercase tracking-wide">
+        <nav className="absolute top-full left-0 right-0 bg-brand-dark border-t border-brand-gold shadow-lg z-50">
+          <div className="max-w-6xl mx-auto px-6 py-4 flex flex-col gap-3 text-sm uppercase tracking-wide">
             {LINKS.map(([label, href]) => (
               <Link key={href} href={href} className="hover:text-brand-gold" onClick={() => setOpen(false)}>
                 {label}
