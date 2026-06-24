@@ -8,13 +8,15 @@ export default function Menus() {
   const items = getMenuItems();
   return (
     <div>
-      <div className="relative h-56">
-        <Image
-          src="/site-assets/photo-scallops.jpg"
-          alt="Seared scallops at Omar's"
-          fill
-          className="object-cover"
-        />
+      <div className="max-w-3xl mx-auto px-6 pt-10">
+        <div className="relative h-56 rounded overflow-hidden">
+          <Image
+            src="/site-assets/photo-scallops.jpg"
+            alt="Seared scallops at Omar's"
+            fill
+            className="object-cover"
+          />
+        </div>
       </div>
 
       <div className="max-w-3xl mx-auto px-6 py-16">

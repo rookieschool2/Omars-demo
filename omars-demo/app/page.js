@@ -42,18 +42,10 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="grid md:grid-cols-2">
-        <div className="relative h-64 md:h-auto">
-          <Image
-            src="/site-assets/photo-scallops.jpg"
-            alt="Seared scallops at Omar's"
-            fill
-            className="object-cover"
-          />
-        </div>
-        <div className="flex flex-col justify-center px-8 py-12 md:px-12">
+      <section className="max-w-4xl mx-auto px-6 py-16">
+        <div className="text-center mb-8">
           <h2 className="font-serif text-3xl text-brand-burgundy">Hand-cut steaks, fresh seafood</h2>
-          <p className="mt-4 text-brand-dark/80">
+          <p className="mt-4 text-brand-dark/80 max-w-2xl mx-auto">
             We hand-cut every steak and dry-age it six weeks. Fresh fish arrives three to five
             times a week. Our soups, dressings, sauces, and stocks are made from scratch, the same
             way they were in 1946, when Omer and Hazel Hill first built this place by hand.
@@ -62,15 +54,24 @@ export default function Home() {
             Read our story (it involves mastodon bones and a sign painter&apos;s typo)
           </Link>
         </div>
-      </section>
-
-      <section className="relative h-72">
-        <Image
-          src="/site-assets/photo-crab.jpg"
-          alt="Fresh crab at Omar's"
-          fill
-          className="object-cover"
-        />
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div className="relative h-56 rounded overflow-hidden">
+            <Image
+              src="/site-assets/photo-scallops.jpg"
+              alt="Seared scallops at Omar's"
+              fill
+              className="object-cover"
+            />
+          </div>
+          <div className="relative h-56 rounded overflow-hidden">
+            <Image
+              src="/site-assets/photo-crab.jpg"
+              alt="Fresh crab at Omar's"
+              fill
+              className="object-cover"
+            />
+          </div>
+        </div>
       </section>
 
       <SocialFeed />

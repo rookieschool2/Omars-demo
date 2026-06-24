@@ -27,13 +27,6 @@ export default function Nav() {
             OMAR&apos;S
           </span>
         </Link>
-        <nav className="hidden md:flex gap-5 text-sm uppercase tracking-wide">
-          {LINKS.map(([label, href]) => (
-            <Link key={href} href={href} className="hover:text-brand-gold">
-              {label}
-            </Link>
-          ))}
-        </nav>
         <div className="flex items-center gap-3">
           <Link
             href="/reserve"
@@ -52,7 +45,7 @@ export default function Nav() {
             onClick={() => setOpen((v) => !v)}
             aria-label="Toggle menu"
             aria-expanded={open}
-            className="md:hidden flex flex-col gap-1.5 p-2"
+            className="flex flex-col gap-1.5 p-2"
           >
             <span className="block w-6 h-0.5 bg-brand-gold" />
             <span className="block w-6 h-0.5 bg-brand-gold" />
@@ -62,18 +55,20 @@ export default function Nav() {
       </div>
 
       {open && (
-        <nav className="md:hidden border-t border-brand-gold px-6 py-4 flex flex-col gap-3 text-sm uppercase tracking-wide">
-          {LINKS.map(([label, href]) => (
-            <Link key={href} href={href} className="hover:text-brand-gold" onClick={() => setOpen(false)}>
-              {label}
+        <nav className="border-t border-brand-gold px-6 py-4">
+          <div className="max-w-6xl mx-auto flex flex-wrap gap-x-6 gap-y-3 text-sm uppercase tracking-wide">
+            {LINKS.map(([label, href]) => (
+              <Link key={href} href={href} className="hover:text-brand-gold" onClick={() => setOpen(false)}>
+                {label}
+              </Link>
+            ))}
+            <Link href="/reserve" className="sm:hidden hover:text-brand-gold" onClick={() => setOpen(false)}>
+              Reserve
             </Link>
-          ))}
-          <Link href="/reserve" className="hover:text-brand-gold" onClick={() => setOpen(false)}>
-            Reserve
-          </Link>
-          <Link href="/order" className="hover:text-brand-gold" onClick={() => setOpen(false)}>
-            Order
-          </Link>
+            <Link href="/order" className="sm:hidden hover:text-brand-gold" onClick={() => setOpen(false)}>
+              Order
+            </Link>
+          </div>
         </nav>
       )}
     </header>
