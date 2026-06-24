@@ -1,3 +1,5 @@
+import NewsletterSignup from './NewsletterSignup';
+
 export default function Footer() {
   return (
     <footer className="bg-brand-dark text-brand-cream border-t border-brand-gold mt-16">
@@ -25,6 +27,9 @@ export default function Footer() {
           >
             Facebook
           </a>
+        </div>
+        <div>
+          <NewsletterSignup />
         </div>
       </div>
     </footer>

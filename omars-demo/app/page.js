@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import SocialFeed from '@/components/SocialFeed';
 
 export default function Home() {
   return (
@@ -31,6 +32,8 @@ export default function Home() {
           Read our story
         </Link>
       </section>
+
+      <SocialFeed />
     </div>
   );
 }
