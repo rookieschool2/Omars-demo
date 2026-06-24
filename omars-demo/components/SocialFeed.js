@@ -1,8 +1,10 @@
+import Image from 'next/image';
+
 const PHOTOS = [
-  'https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=400&h=400&fit=crop',
-  'https://images.unsplash.com/photo-1432139509613-5c4255815697?w=400&h=400&fit=crop',
-  'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400&h=400&fit=crop',
-  'https://images.unsplash.com/photo-1559339352-11d035aa65de?w=400&h=400&fit=crop',
+  { src: '/site-assets/photo-sign-night.jpg', alt: "Omar's neon sign at night" },
+  { src: '/site-assets/photo-exterior-night.jpg', alt: "Omar's exterior at night" },
+  { src: '/site-assets/photo-scallops.jpg', alt: 'Seared scallops at Omar\'s' },
+  { src: '/site-assets/photo-crab.jpg', alt: "Fresh crab at Omar's" },
 ];
 
 export default function SocialFeed() {
@@ -10,7 +12,7 @@ export default function SocialFeed() {
     <section className="max-w-4xl mx-auto px-6 py-16">
       <h2 className="font-serif text-3xl text-brand-burgundy text-center mb-2">Follow Us</h2>
       <p className="text-center text-sm text-brand-dark/60 mb-8">
-        Sample photos &mdash; see our real feed on{' '}
+        See more on{' '}
         <a href="https://www.instagram.com/omarsrestaurant/" target="_blank" rel="noreferrer" className="underline">
           Instagram
         </a>{' '}
@@ -21,9 +23,10 @@ export default function SocialFeed() {
         .
       </p>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-        {PHOTOS.map((src) => (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img key={src} src={src} alt="Omar's restaurant" className="w-full h-40 object-cover" />
+        {PHOTOS.map((photo) => (
+          <div key={photo.src} className="relative w-full h-40">
+            <Image src={photo.src} alt={photo.alt} fill className="object-cover" />
+          </div>
         ))}
       </div>
     </section>
