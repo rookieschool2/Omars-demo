@@ -1,4 +1,5 @@
 'use client';
+import Image from 'next/image';
 import { useState } from 'react';
 
 const ITEMS = [
@@ -12,7 +13,10 @@ export default function Store() {
 
   return (
     <div className="max-w-3xl mx-auto px-6 py-16">
-      <h1 className="font-serif text-4xl text-brand-burgundy mb-4">Gift Cards</h1>
+      <div className="flex items-center gap-4 mb-4">
+        <Image src="/site-assets/omars-shop.png" alt="Shop Omar's Online" width={90} height={90} />
+        <h1 className="font-serif text-4xl text-brand-burgundy">Gift Cards</h1>
+      </div>
       <p className="mb-8 text-sm text-brand-dark/70">
         Demo only &mdash; this does not process real payments.
       </p>
