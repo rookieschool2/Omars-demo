@@ -1,33 +1,56 @@
 import Image from 'next/image';
 
-const PHOTOS = [
-  { src: '/site-assets/photo-sign-night.jpg', alt: "Omar's neon sign at night" },
-  { src: '/site-assets/photo-exterior-night.jpg', alt: "Omar's exterior at night" },
-  { src: '/site-assets/photo-scallops.jpg', alt: 'Seared scallops at Omar\'s' },
-  { src: '/site-assets/photo-crab.jpg', alt: "Fresh crab at Omar's" },
+const INSTAGRAM_POSTS = [
+  { src: '/site-assets/instagram/ig-1.jpg', alt: "French dip sandwich at Omar's", href: 'https://www.instagram.com/omarsrestaurant/p/DZ_HoMTgR6f/' },
+  { src: '/site-assets/instagram/ig-2.jpg', alt: "Cocktail on the patio at Omar's", href: 'https://www.instagram.com/omarsrestaurant/p/DZyMHWoklmA/' },
+  { src: '/site-assets/instagram/ig-3.jpg', alt: 'Vintage photo of downtown Ashland', href: 'https://www.instagram.com/omarsrestaurant/p/DZ0zyvlgRZU/' },
+  { src: '/site-assets/instagram/ig-4.jpg', alt: 'Conquer the Cut prime rib challenge', href: 'https://www.instagram.com/omarsrestaurant/p/DZtIhx5meDw/' },
 ];
+
+const FACEBOOK_POSTS = [
+  { src: '/site-assets/fb-cover.jpg', alt: "Omar's neon sign at night", href: 'https://www.facebook.com/omarsfreshseafoodsteaks/' },
+  { src: '/site-assets/facebook/fb-1.jpg', alt: "Omar's breakfast tots", href: 'https://www.facebook.com/omarsfreshseafoodsteaks/' },
+];
+
+function FeedGrid({ posts }) {
+  return (
+    <div className="grid grid-cols-2 gap-3">
+      {posts.map((post) => (
+        <a key={post.src} href={post.href} target="_blank" rel="noreferrer" className="relative w-full h-40 block">
+          <Image src={post.src} alt={post.alt} fill className="object-cover" />
+        </a>
+      ))}
+    </div>
+  );
+}
 
 export default function SocialFeed() {
   return (
     <section className="max-w-4xl mx-auto px-6 py-16">
-      <h2 className="font-serif text-3xl text-brand-burgundy text-center mb-2">Follow Us</h2>
-      <p className="text-center text-sm text-brand-dark/60 mb-8">
-        See more on{' '}
-        <a href="https://www.instagram.com/omarsrestaurant/" target="_blank" rel="noreferrer" className="underline">
-          Instagram
-        </a>{' '}
-        and{' '}
-        <a href="https://www.facebook.com/omarsfreshseafoodsteaks/" target="_blank" rel="noreferrer" className="underline">
-          Facebook
-        </a>
-        .
-      </p>
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-        {PHOTOS.map((photo) => (
-          <div key={photo.src} className="relative w-full h-40">
-            <Image src={photo.src} alt={photo.alt} fill className="object-cover" />
-          </div>
-        ))}
+      <h2 className="font-serif text-3xl text-brand-burgundy text-center mb-8">Follow Us</h2>
+      <div className="grid sm:grid-cols-2 gap-10">
+        <div>
+          <a
+            href="https://www.instagram.com/omarsrestaurant/"
+            target="_blank"
+            rel="noreferrer"
+            className="block text-center font-serif text-lg text-brand-burgundy underline mb-4"
+          >
+            Instagram
+          </a>
+          <FeedGrid posts={INSTAGRAM_POSTS} />
+        </div>
+        <div>
+          <a
+            href="https://www.facebook.com/omarsfreshseafoodsteaks/"
+            target="_blank"
+            rel="noreferrer"
+            className="block text-center font-serif text-lg text-brand-burgundy underline mb-4"
+          >
+            Facebook
+          </a>
+          <FeedGrid posts={FACEBOOK_POSTS} />
+        </div>
       </div>
     </section>
   );
