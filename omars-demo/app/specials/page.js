@@ -8,7 +8,7 @@ export default function Specials() {
     <div className="max-w-3xl mx-auto px-6 py-16">
       <h1 className="font-serif text-4xl text-brand-burgundy mb-2">Specials</h1>
       <p className="text-sm text-brand-dark/60 mb-8">
-        Our specials change daily &mdash; here&apos;s what&apos;s on the board.
+        Our specials change daily. Here&apos;s what&apos;s on the board.
       </p>
       <ul className="space-y-6">
         {specials.map((s) => (

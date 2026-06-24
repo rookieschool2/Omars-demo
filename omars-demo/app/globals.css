@@ -5,7 +5,7 @@
   --color-brand-burgundy: #6e1f1f;
   --color-brand-gold: #c9a24b;
   --color-brand-cream: #f4ebd9;
-  --font-serif: Georgia, Cambria, serif;
+  --font-serif: var(--font-playfair), Georgia, Cambria, serif;
   --font-sans: Helvetica, Arial, sans-serif;
 }
 

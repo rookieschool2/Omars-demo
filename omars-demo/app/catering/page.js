@@ -10,8 +10,8 @@ export default function Catering() {
       </div>
       <p className="mb-6">
         Let Omar&apos;s make your next event or gathering memorable. Our professional service
-        staff can set up an elegantly decorated buffet, serve, and clean up &mdash; during the
-        party or after.
+        staff can set up an elegantly decorated buffet, serve, and clean up, during the party or
+        after.
       </p>
 
       <h2 className="font-serif text-2xl text-brand-burgundy mb-3">Hors d&apos;Oeuvres</h2>
@@ -26,7 +26,7 @@ export default function Catering() {
       <ul className="mb-6 text-brand-dark/80 list-disc pl-5 space-y-1">
         <li>Each event is priced by the number of servers needed, hours, and travel time</li>
         <li>Each server is $15.00 per hour; a 15% service charge is added for staffed parties</li>
-        <li>Fully licensed and insured &mdash; &quot;hosted&quot; or &quot;no host&quot; alcohol service available</li>
+        <li>Fully licensed and insured. &quot;Hosted&quot; or &quot;no host&quot; alcohol service available</li>
         <li>A $100.00 non-refundable deposit (applied to your balance) confirms your date</li>
         <li>50% of the total party cost is due 30 days in advance, balance due 3 days before</li>
       </ul>

@@ -25,11 +25,11 @@ export default function Home() {
           <h1 className="font-serif text-5xl text-brand-gold tracking-wide">OMAR&apos;S</h1>
           <p className="mt-4 text-lg">Est. 1946 &middot; Steaks &amp; Seafood &middot; Ashland, OR</p>
           <p className="mt-2 text-brand-cream/90 max-w-xl mx-auto">
-            Ashland&apos;s oldest restaurant and first public cocktail lounge &mdash; the longest
+            Ashland&apos;s oldest restaurant and first public cocktail lounge, and the longest
             continuously operating restaurant from Portland, Oregon to Redding, California.
           </p>
           <p className="mt-3 text-sm uppercase tracking-wide text-brand-gold">
-            Voted Best Steaks &amp; Seafood, 1991&ndash;2018 &mdash; Sneak Preview &quot;Best of Ashland&quot;
+            Voted Best Steaks &amp; Seafood, 1991&ndash;2018 (Sneak Preview &quot;Best of Ashland&quot; Poll)
           </p>
           <div className="mt-8 flex gap-4 justify-center">
             <Link href="/reserve" className="bg-brand-gold text-brand-dark px-6 py-3 uppercase tracking-wide text-sm hover:bg-brand-cream transition">
@@ -55,12 +55,11 @@ export default function Home() {
           <h2 className="font-serif text-3xl text-brand-burgundy">Hand-cut steaks, fresh seafood</h2>
           <p className="mt-4 text-brand-dark/80">
             We hand-cut every steak and dry-age it six weeks. Fresh fish arrives three to five
-            times a week. Our soups, dressings, sauces, and stocks are made from scratch, every
-            day &mdash; the same way they were in 1946, when Omer and Hazel Hill first built this
-            place by hand.
+            times a week. Our soups, dressings, sauces, and stocks are made from scratch, the same
+            way they were in 1946, when Omer and Hazel Hill first built this place by hand.
           </p>
           <Link href="/about" className="inline-block mt-4 text-brand-burgundy underline">
-            Read our story &mdash; it involves mastodon bones
+            Read our story (it involves mastodon bones and a sign painter&apos;s typo)
           </Link>
         </div>
       </section>

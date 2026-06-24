@@ -11,8 +11,8 @@ export default function Events() {
       </p>
       <p className="mb-8">
         <strong>Tuesdays &amp; Wednesdays:</strong> no corkage fee, no room rental fee, and the
-        ability to build your own menu &mdash; formal dining or buffet style, for parties of 20 or
-        more. Email omarsrestaurant@gmail.com for details.
+        ability to build your own menu, formal dining or buffet style, for parties of 20 or more.
+        Email omarsrestaurant@gmail.com for details.
       </p>
 
       <div className="border border-brand-gold p-6 mb-8">
@@ -24,7 +24,7 @@ export default function Events() {
           A 72oz prime rib (cooked rare or medium rare), topped with grilled onions, mushrooms,
           and two house-made onion rings. A loaded baked potato with cheese, bacon, sour cream,
           and chives. A dinner salad or cup of soup. Celery and carrot sticks, green olives, pickle
-          spears. Half a loaf of baguette. Coffee, tea, or soda to top it off &mdash; and a Coupe
+          spears. Half a loaf of baguette. Coffee, tea, or soda to top it off, and a Coupe
           Denmark.
         </p>
         <h3 className="font-serif text-lg text-brand-burgundy mb-2">The Rules</h3>

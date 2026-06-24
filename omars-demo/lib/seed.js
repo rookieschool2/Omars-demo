@@ -14,7 +14,7 @@ function seed() {
 
     ['Seafood Specialties', 'Fish & Chips', "Fresh Oregon snapper in Omar's beer batter, served with coleslaw and steak fries.", 20],
     ['Seafood Specialties', 'Shrimp Tempura', 'Shrimp, mushrooms, zucchini, in a crispy egg batter served with teriyaki and cocktail sauce, with fresh sautéed seasonal vegetables. Choice of baked potato or garlic whipped potatoes.', 27],
-    ['Seafood Specialties', 'Oysters & Shrimp', "Can't pick a favorite? Have both — 3 shrimp tempura and 3 fresh Pacific oysters, served with teriyaki, cocktail, and tartar sauce with fresh sautéed seasonal vegetables and choice of baked potato or garlic whipped potatoes.", 30],
+    ['Seafood Specialties', 'Oysters & Shrimp', "Can't pick a favorite? Have both: 3 shrimp tempura and 3 fresh Pacific oysters, served with teriyaki, cocktail, and tartar sauce with fresh sautéed seasonal vegetables and choice of baked potato or garlic whipped potatoes.", 30],
     ['Seafood Specialties', 'Snapper Parmesan', 'Topped with lemon-caper butter, fresh sautéed vegetables, and choice of baked potato or garlic whipped potatoes.', 25],
     ['Seafood Specialties', 'Fresh Pacific Oysters', 'Rolled in cracker meal and fried, served with tartar sauce, fresh sautéed seasonal vegetables, and choice of baked potato or garlic whipped potatoes.', 33],
 
@@ -33,7 +33,7 @@ function seed() {
     ['Appetizers', 'Fried Brussels Sprouts', 'Fried golden brown, topped with a balsamic reduction and sea salt.', 16],
     ['Appetizers', 'Side of Bread', 'A demi-baguette lightly steamed, served with butter.', 4],
 
-    ['Soups & Salads', 'Soup of the Day', 'Cup $7, bowl $8 — ask for our famous chowder (weekends only, Sat. & Sun., add 50¢).', 7],
+    ['Soups & Salads', 'Soup of the Day', 'Cup $7, bowl $8 (ask for our famous chowder, weekends only, Sat. and Sun., add 50 cents).', 7],
     ['Soups & Salads', 'Classic Caesar Salad', 'A traditional Caesar with crisp romaine lettuce, croutons, Parmesan cheese, and our classic Caesar dressing. Add grilled chicken $3.50, add shrimp $12. Non-fat dressing available.', 15],
 
     ['Burgers & Sandwiches', 'Classic Hamburger', '1/3 pound of lean beef, charbroiled and served on a potato bun with lettuce, tomato, pickles, red onion, and mayo.', 14],
@@ -50,8 +50,8 @@ function seed() {
     addMenuItem({ category, name, description, price });
   }
 
-  // Today's specials rotate daily and are managed live via the admin CMS —
-  // this is a representative example, not a fixed menu.
+  // Today's specials rotate daily and are managed live via the admin CMS.
+  // This is a representative example, not a fixed menu.
   const specials = [
     ['Spinach & Artichoke Dip', 'House made, served with toasted crostini.', 15, "Today's Specials"],
     ['Oysters on the Half Shell', 'Served with mignonette sauce.', 18, "Today's Specials"],

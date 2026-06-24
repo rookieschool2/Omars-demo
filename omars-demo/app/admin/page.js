@@ -6,7 +6,7 @@ const TABS = {
     label: 'Menu Items',
     endpoint: '/api/admin/menu-items',
     fields: ['category', 'name', 'description', 'price'],
-    display: (item) => `${item.category} — ${item.name} ($${item.price.toFixed(2)})`,
+    display: (item) => `${item.category}: ${item.name} ($${item.price.toFixed(2)})`,
   },
   specials: {
     label: 'Specials',
@@ -18,7 +18,7 @@ const TABS = {
     label: 'Wine List',
     endpoint: '/api/admin/wine-list',
     fields: ['category', 'name', 'description', 'price'],
-    display: (item) => `${item.category} — ${item.name} ($${item.price.toFixed(2)})`,
+    display: (item) => `${item.category}: ${item.name} ($${item.price.toFixed(2)})`,
   },
 };
 

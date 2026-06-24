@@ -6,7 +6,7 @@ const path = require('path');
 const TEST_DB_PATH = path.join(__dirname, '..', 'data', 'test.db');
 process.env.OMARS_DB_PATH = TEST_DB_PATH;
 
-// db.js opens a single connection cached by require() — deleting the file
+// db.js opens a single connection cached by require(). Deleting the file
 // between tests wouldn't reset it, so clear tables on the live connection.
 test.beforeEach(() => {
   const db = require('./db');

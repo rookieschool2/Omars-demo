@@ -18,7 +18,7 @@ export default function Store() {
         <h1 className="font-serif text-4xl text-brand-burgundy">Gift Cards</h1>
       </div>
       <p className="mb-8 text-sm text-brand-dark/70">
-        Demo only &mdash; this does not process real payments.
+        Demo only. This does not process real payments.
       </p>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {ITEMS.map((item) => (
@@ -35,7 +35,7 @@ export default function Store() {
       </div>
       {confirmed && (
         <p className="mt-6 text-brand-burgundy">
-          Thanks! Your {confirmed} purchase is confirmed (demo &mdash; no real charge was made).
+          Thanks! Your {confirmed} purchase is confirmed (demo only, no real charge was made).
         </p>
       )}
     </div>

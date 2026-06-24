@@ -1,3 +1,5 @@
+'use client';
+import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -14,6 +16,8 @@ const LINKS = [
 ];
 
 export default function Nav() {
+  const [open, setOpen] = useState(false);
+
   return (
     <header className="bg-brand-dark text-brand-cream border-b border-brand-gold">
       <div className="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
@@ -30,21 +34,48 @@ export default function Nav() {
             </Link>
           ))}
         </nav>
-        <div className="flex gap-3">
+        <div className="flex items-center gap-3">
           <Link
             href="/reserve"
-            className="border border-brand-gold text-brand-gold px-3 py-1.5 text-sm uppercase tracking-wide hover:bg-brand-gold hover:text-brand-dark transition"
+            className="hidden sm:inline border border-brand-gold text-brand-gold px-3 py-1.5 text-sm uppercase tracking-wide hover:bg-brand-gold hover:text-brand-dark transition"
           >
             Reserve
           </Link>
           <Link
             href="/order"
-            className="bg-brand-burgundy text-brand-cream px-3 py-1.5 text-sm uppercase tracking-wide hover:bg-brand-gold hover:text-brand-dark transition"
+            className="hidden sm:inline bg-brand-burgundy text-brand-cream px-3 py-1.5 text-sm uppercase tracking-wide hover:bg-brand-gold hover:text-brand-dark transition"
           >
             Order
           </Link>
+          <button
+            type="button"
+            onClick={() => setOpen((v) => !v)}
+            aria-label="Toggle menu"
+            aria-expanded={open}
+            className="md:hidden flex flex-col gap-1.5 p-2"
+          >
+            <span className="block w-6 h-0.5 bg-brand-gold" />
+            <span className="block w-6 h-0.5 bg-brand-gold" />
+            <span className="block w-6 h-0.5 bg-brand-gold" />
+          </button>
         </div>
       </div>
+
+      {open && (
+        <nav className="md:hidden border-t border-brand-gold px-6 py-4 flex flex-col gap-3 text-sm uppercase tracking-wide">
+          {LINKS.map(([label, href]) => (
+            <Link key={href} href={href} className="hover:text-brand-gold" onClick={() => setOpen(false)}>
+              {label}
+            </Link>
+          ))}
+          <Link href="/reserve" className="hover:text-brand-gold" onClick={() => setOpen(false)}>
+            Reserve
+          </Link>
+          <Link href="/order" className="hover:text-brand-gold" onClick={() => setOpen(false)}>
+            Order
+          </Link>
+        </nav>
+      )}
     </header>
   );
 }

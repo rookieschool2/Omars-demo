@@ -60,7 +60,7 @@ export default function Order() {
     return (
       <div className="max-w-xl mx-auto px-6 py-16 text-center">
         <h1 className="font-serif text-3xl text-brand-burgundy">Order placed</h1>
-        <p className="mt-4">Thanks! This is a demo order &mdash; no real payment was charged.</p>
+        <p className="mt-4">Thanks! This is a demo order. No real payment was charged.</p>
       </div>
     );
   }

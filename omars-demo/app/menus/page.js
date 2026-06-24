@@ -24,7 +24,7 @@ export default function Menus() {
           locally sourced whenever possible. We hand-cut all of our steaks and dry-age them an
           extra six weeks for tenderness and flavor. We receive three to five fish deliveries a
           week from local and global waters, and we make all of our soups, dressings, sauces, and
-          stocks from scratch &mdash; from our kitchen to your plate.
+          stocks from scratch, from our kitchen to your plate.
         </p>
         <MenuList items={items} />
         <p className="mt-12 text-sm text-brand-dark/60">

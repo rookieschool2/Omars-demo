@@ -29,7 +29,7 @@ export default function InquiryForm({ subject }) {
   }
 
   if (status === 'sent') {
-    return <p className="text-brand-burgundy">Thanks &mdash; we received your message.</p>;
+    return <p className="text-brand-burgundy">Thanks, we received your message.</p>;
   }
 
   return (

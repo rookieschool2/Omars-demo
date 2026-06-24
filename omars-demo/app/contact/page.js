@@ -15,12 +15,11 @@ export default function Contact() {
         Dinner served nightly from 5:00 PM. Closed for dinner on Thanksgiving, Christmas Day, and
         New Year&apos;s Day.
       </p>
-      <p className="mb-8">Cocktail lounge open until 8pm &mdash; first come, first served.</p>
+      <p className="mb-8">Cocktail lounge open until 8pm, first come, first served.</p>
 
       <p className="italic text-brand-dark/70 mb-8">
-        &quot;1991, &apos;92, &apos;93 &hellip; 2018 &mdash; locals have voted Omar&apos;s as the
-        Best Steaks &amp; Seafood.&quot; &mdash; Sneak Preview, Annual &quot;Best of Ashland&quot;
-        Poll
+        &quot;1991, &apos;92, &apos;93 &hellip; 2018, locals have voted Omar&apos;s as the
+        Best Steaks &amp; Seafood.&quot; (Sneak Preview, Annual &quot;Best of Ashland&quot; Poll)
       </p>
 
       <div className="mb-10 border border-brand-gold">
