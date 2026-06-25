@@ -6,12 +6,17 @@ const fs = require('fs');
 // server chunks to a virtual path that doesn't exist on disk.
 const DB_PATH = process.env.OMARS_DB_PATH || path.join(process.cwd(), 'data', 'omars.db');
 
-fs.mkdirSync(path.dirname(DB_PATH), { recursive: true });
+// Lazy connection: opening the database touches the filesystem, which fails
+// during `next build` (the persistent disk only mounts at runtime). The Proxy
+// below defers all of this until the first real query at runtime.
+let db = null;
 
-const db = new Database(DB_PATH);
-db.pragma('journal_mode = WAL');
-
-db.exec(`
+function init() {
+  if (db) return db;
+  fs.mkdirSync(path.dirname(DB_PATH), { recursive: true });
+  db = new Database(DB_PATH);
+  db.pragma('journal_mode = WAL');
+  db.exec(`
   CREATE TABLE IF NOT EXISTS menu_items (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     category TEXT NOT NULL,
@@ -71,6 +76,19 @@ db.exec(`
     email TEXT NOT NULL UNIQUE,
     created_at TEXT DEFAULT CURRENT_TIMESTAMP
   );
-`);
+  `);
+  return db;
+}
 
-module.exports = db;
+// Expose the same `db.prepare(...)` / `db.exec(...)` API as before, but route
+// every access through init() so the connection opens on first use only.
+module.exports = new Proxy(
+  {},
+  {
+    get(_target, prop) {
+      const conn = init();
+      const value = conn[prop];
+      return typeof value === 'function' ? value.bind(conn) : value;
+    },
+  }
+);
