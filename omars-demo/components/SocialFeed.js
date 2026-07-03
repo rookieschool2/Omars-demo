@@ -30,25 +30,29 @@ export default function SocialFeed() {
       <h2 className="font-serif text-3xl text-brand-burgundy text-center mb-8">Follow Us</h2>
       <div className="grid sm:grid-cols-2 gap-10">
         <div>
-          <a
-            href="https://www.instagram.com/omarsrestaurant/"
-            target="_blank"
-            rel="noreferrer"
-            className="block text-center font-serif text-lg text-brand-burgundy underline mb-4"
-          >
-            Instagram
-          </a>
+          <div className="text-center mb-4">
+            <a
+              href="https://www.instagram.com/omarsrestaurant/"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-block bg-brand-burgundy text-brand-cream px-5 py-2 uppercase text-sm tracking-wide hover:bg-brand-gold hover:text-brand-dark transition"
+            >
+              Instagram
+            </a>
+          </div>
           <FeedGrid posts={INSTAGRAM_POSTS} />
         </div>
         <div>
-          <a
-            href="https://www.facebook.com/omarsfreshseafoodsteaks/"
-            target="_blank"
-            rel="noreferrer"
-            className="block text-center font-serif text-lg text-brand-burgundy underline mb-4"
-          >
-            Facebook
-          </a>
+          <div className="text-center mb-4">
+            <a
+              href="https://www.facebook.com/omarsfreshseafoodsteaks/"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-block bg-brand-burgundy text-brand-cream px-5 py-2 uppercase text-sm tracking-wide hover:bg-brand-gold hover:text-brand-dark transition"
+            >
+              Facebook
+            </a>
+          </div>
           <FeedGrid posts={FACEBOOK_POSTS} />
         </div>
       </div>

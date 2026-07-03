@@ -16,7 +16,7 @@ export default function Footer() {
             href="https://www.instagram.com/omarsrestaurant/"
             target="_blank"
             rel="noreferrer"
-            className="text-brand-gold hover:text-brand-cream"
+            className="inline-block border border-brand-gold text-brand-gold px-4 py-2 uppercase text-sm tracking-wide hover:bg-brand-gold hover:text-brand-dark transition"
           >
             Instagram
           </a>
@@ -24,7 +24,7 @@ export default function Footer() {
             href="https://www.facebook.com/omarsfreshseafoodsteaks/"
             target="_blank"
             rel="noreferrer"
-            className="text-brand-gold hover:text-brand-cream"
+            className="inline-block border border-brand-gold text-brand-gold px-4 py-2 uppercase text-sm tracking-wide hover:bg-brand-gold hover:text-brand-dark transition"
           >
             Facebook
           </a>
