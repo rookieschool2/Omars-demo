@@ -10,6 +10,8 @@ const INSTAGRAM_POSTS = [
 const FACEBOOK_POSTS = [
   { src: '/site-assets/fb-cover.jpg', alt: "Omar's neon sign at night", href: 'https://www.facebook.com/omarsfreshseafoodsteaks/' },
   { src: '/site-assets/facebook/fb-1.jpg', alt: "Omar's breakfast tots", href: 'https://www.facebook.com/omarsfreshseafoodsteaks/' },
+  { src: '/site-assets/photo-scallops.jpg', alt: "Seared scallops at Omar's", href: 'https://www.facebook.com/omarsfreshseafoodsteaks/' },
+  { src: '/site-assets/photo-crab.jpg', alt: "Fresh crab at Omar's", href: 'https://www.facebook.com/omarsfreshseafoodsteaks/' },
 ];
 
 function FeedGrid({ posts }) {
