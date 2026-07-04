@@ -2,6 +2,10 @@ import Image from 'next/image';
 import Link from 'next/link';
 import SocialFeed from '@/components/SocialFeed';
 
+export const metadata = {
+  alternates: { canonical: "/" },
+};
+
 export default function Home() {
   return (
     <div>
