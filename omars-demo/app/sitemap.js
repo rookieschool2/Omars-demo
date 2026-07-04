@@ -16,8 +16,8 @@ const ROUTES = [
 
 export default function sitemap() {
   return ROUTES.map((route) => ({
-    url: `${BUSINESS.siteUrl}${route}`,
-    lastModified: new Date(),
+    url: route === '' ? `${BUSINESS.siteUrl}/` : `${BUSINESS.siteUrl}${route}`,
+    ...(route === '/specials' ? { lastModified: new Date() } : {}),
     changeFrequency: route === '/specials' ? 'daily' : 'monthly',
     priority: route === '' ? 1 : 0.7,
   }));
