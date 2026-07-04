@@ -2,6 +2,7 @@ import { Playfair_Display } from "next/font/google";
 import "./globals.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import JsonLd from "@/components/JsonLd";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -18,6 +19,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={playfair.variable}>
       <body className="bg-brand-cream text-brand-dark font-sans">
+        <JsonLd />
         <Nav />
         <main>{children}</main>
         <Footer />
