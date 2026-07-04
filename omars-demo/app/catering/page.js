@@ -1,6 +1,13 @@
 import Image from 'next/image';
 import InquiryForm from '@/components/InquiryForm';
 
+export const metadata = {
+  title: 'Catering in Ashland & the Rogue Valley',
+  description:
+    "Full-service catering from Omar's: hors d'oeuvres, elegant buffets, staffed service, and licensed bar service for events across the Rogue Valley.",
+  alternates: { canonical: '/catering' },
+};
+
 export default function Catering() {
   return (
     <div className="max-w-2xl mx-auto px-6 py-16">

@@ -1,5 +1,12 @@
 import InquiryForm from '@/components/InquiryForm';
 
+export const metadata = {
+  title: 'Private Events & Parties',
+  description:
+    "Host your party at Omar's. Build-your-own menus for groups of 20 or more, no room fee Tuesdays and Wednesdays, and the 72oz Conquer the Cut challenge.",
+  alternates: { canonical: '/events' },
+};
+
 export default function Events() {
   return (
     <div className="max-w-2xl mx-auto px-6 py-16">

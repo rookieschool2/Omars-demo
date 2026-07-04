@@ -1,6 +1,13 @@
 import { getWineList } from '@/lib/queries';
 import MenuList from '@/components/MenuList';
 
+export const metadata = {
+  title: 'Wine List & Cocktails',
+  description:
+    "Northwest and California wines by the glass and bottle, plus classic cocktails at Ashland's first public cocktail lounge, pouring since 1946.",
+  alternates: { canonical: '/wine-list' },
+};
+
 export const dynamic = 'force-dynamic';
 
 export default function WineList() {

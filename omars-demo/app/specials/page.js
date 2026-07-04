@@ -1,5 +1,12 @@
 import { getSpecials } from '@/lib/queries';
 
+export const metadata = {
+  title: 'Daily Specials',
+  description:
+    "Our specials board changes daily: fresh catch, chef's cuts, and seasonal dishes. See what's on at Omar's in Ashland today.",
+  alternates: { canonical: '/specials' },
+};
+
 export const dynamic = 'force-dynamic';
 
 export default function Specials() {

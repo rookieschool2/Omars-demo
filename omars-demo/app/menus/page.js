@@ -3,6 +3,13 @@ import Link from 'next/link';
 import { getMenuItems } from '@/lib/queries';
 import OrderableMenuList from '@/components/OrderableMenuList';
 
+export const metadata = {
+  title: 'Steak & Seafood Menu',
+  description:
+    "Hand-cut steaks, fresh seafood, and house favorites made from scratch since 1946. Browse the full menu at Omar's in Ashland, Oregon.",
+  alternates: { canonical: '/menus' },
+};
+
 export const dynamic = 'force-dynamic';
 
 export default function Menus() {

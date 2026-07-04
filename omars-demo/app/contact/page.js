@@ -1,5 +1,12 @@
 import InquiryForm from '@/components/InquiryForm';
 
+export const metadata = {
+  title: 'Contact & Reservations',
+  description:
+    "Omar's is at 1380 Siskiyou Blvd, Ashland, OR 97520. Call 541.482.1281 for reservations. Open daily, 11am to 10pm, for dine-in and take-out.",
+  alternates: { canonical: '/contact' },
+};
+
 export default function Contact() {
   return (
     <div className="max-w-2xl mx-auto px-6 py-16">

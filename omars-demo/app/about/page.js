@@ -1,5 +1,12 @@
 import Image from 'next/image';
 
+export const metadata = {
+  title: "About Omar's, Serving Ashland Since 1946",
+  description:
+    "The longest continuously operating restaurant between Portland and Redding. Read the story behind Ashland's oldest restaurant and its neon sign.",
+  alternates: { canonical: '/about' },
+};
+
 export default function About() {
   return (
     <div>
