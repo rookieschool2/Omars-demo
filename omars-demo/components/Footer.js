@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import NewsletterSignup from './NewsletterSignup';
+import { BUSINESS } from '@/lib/business';
 
 export default function Footer() {
   return (
@@ -7,13 +8,18 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto px-6 py-10 flex flex-col md:flex-row justify-between gap-6">
         <div>
           <Image src="/site-assets/logo.png" alt="Omar's Restaurant & Bar" width={64} height={61} />
-          <p className="text-sm mt-3">1380 Siskiyou Blvd, Ashland, OR 97520</p>
-          <p className="text-sm">541.482.1281 &middot; omarsrestaurant@gmail.com</p>
+          <p className="text-sm mt-3">
+            {BUSINESS.address.street}, {BUSINESS.address.city}, {BUSINESS.address.state}{' '}
+            {BUSINESS.address.zip}
+          </p>
+          <p className="text-sm">
+            {BUSINESS.phoneDisplay} &middot; {BUSINESS.email}
+          </p>
           <p className="text-sm mt-2">Est. 1946 &middot; Ashland&apos;s oldest restaurant</p>
         </div>
         <div className="flex gap-4 items-start">
           <a
-            href="https://www.instagram.com/omarsrestaurant/"
+            href={BUSINESS.social.instagram}
             target="_blank"
             rel="noreferrer"
             className="inline-block border border-brand-gold text-brand-gold px-4 py-2 uppercase text-sm tracking-wide hover:bg-brand-gold hover:text-brand-dark transition"
@@ -21,7 +27,7 @@ export default function Footer() {
             Instagram
           </a>
           <a
-            href="https://www.facebook.com/omarsfreshseafoodsteaks/"
+            href={BUSINESS.social.facebook}
             target="_blank"
             rel="noreferrer"
             className="inline-block border border-brand-gold text-brand-gold px-4 py-2 uppercase text-sm tracking-wide hover:bg-brand-gold hover:text-brand-dark transition"

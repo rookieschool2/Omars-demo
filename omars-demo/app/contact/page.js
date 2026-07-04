@@ -1,4 +1,5 @@
 import InquiryForm from '@/components/InquiryForm';
+import { BUSINESS } from '@/lib/business';
 
 export const metadata = {
   title: 'Contact & Reservations',
@@ -15,8 +16,12 @@ export default function Contact() {
         Ashland&apos;s Original Steak and Seafood House
       </p>
 
-      <p className="mb-2">1380 Siskiyou Blvd, Ashland, Oregon 97520</p>
-      <p className="mb-2">Tel: 541.482.1281 &middot; omarsrestaurant@gmail.com</p>
+      <p className="mb-2">
+        {BUSINESS.address.street}, {BUSINESS.address.city}, Oregon {BUSINESS.address.zip}
+      </p>
+      <p className="mb-2">
+        Tel: {BUSINESS.phoneDisplay} &middot; {BUSINESS.email}
+      </p>
       <p className="mb-2">Open 7 days a week, 11am&ndash;10pm for dine-in and take-out.</p>
       <p className="mb-2">
         Dinner served nightly from 5:00 PM. Closed for dinner on Thanksgiving, Christmas Day, and
